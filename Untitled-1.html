@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dumaguete City National High School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #218838;
+      --white: #fff;
+      --red: #d32f2f;
+      --yellow: #ffd700;
+      --gray: #f4f4f4;
+    }
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--gray);
+      color: #222;
+    }
+    header {
+      background: 
+        linear-gradient(90deg, rgba(33,136,56,0.85), rgba(255,215,0,0.7)),
+        url('491847939_1137881758352788_8870837102194485267_n.jpg') center/cover no-repeat;
+      color: var(--white);
+      padding: 30px 0 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: background 0.5s;
+    }
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--white);
+      margin-bottom: 10px;
+      background: var(--white);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    .tagline {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--green);
+      background: var(--white);
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 20px;
+      margin-top: 10px;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    nav {
+      margin-top: 20px;
+    }
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin: 0 18px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--red);
+    }
+    .main-image {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 0;
+      margin: 0 0 24px 0;
+      box-shadow: 0 4px 24px rgba(33,136,56,0.12);
+      display: block;
+      animation: fadeIn 1.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(33,136,56,0.08);
+      padding: 40px 30px;
+      animation: fadeIn 1.5s;
+    }
+    .mantra {
+      font-size: 1.3rem;
+      color: var(--red);
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .login-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      animation: fadeIn 2s;
+    }
+    .login-box {
+      background: linear-gradient(120deg, var(--green) 60%, var(--yellow));
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(33,136,56,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 350px;
+      transition: box-shadow 0.3s;
+    }
+    .login-box:hover {
+      box-shadow: 0 8px 32px rgba(33,136,56,0.18);
+    }
+    .login-box h2 {
+      color: var(--white);
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 10px 12px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      background: var(--white);
+      color: #222;
+      transition: box-shadow 0.2s;
+    }
+    .login-box input:focus {
+      box-shadow: 0 0 0 2px var(--green);
+    }
+    .login-box button {
+      margin-top: 16px;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 10px 0;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .login-box button:hover {
+      background: var(--green);
+    }
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background: var(--green);
+      color: var(--white);
+      font-size: 1rem;
+      margin-top: 40px;
+      border-radius: 0 0 16px 16px;
+      letter-spacing: 1px;
+    }
+    /* Smooth scroll animation for sections */
+    section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 600px) {
+      .main-image {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="mainHeader">
+    <img src="453392252_936206918520274_407437825569421514_n.jpg" alt="School Logo" class="logo">
+    <h1>Dumaguete City National High School</h1>
+    <div class="tagline">we bleed green</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#login">Login</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <img src="453392252_936206918520274_407437825569421514_n.jpg" alt="Dumaguete City National High School" class="main-image" id="mainImage">
+
+  <div class="content" id="mainContent">
+    <section id="about">
+      <div class="mantra">Respect and Discipline</div>
+      <p>
+        Welcome to Dumaguete City National High School! We are committed to excellence, fostering a culture of respect and discipline among our students. Our vibrant community is built on tradition, innovation, and a passion for learning. Join us as we shape the future, one student at a time.
+      </p>
+    </section>
+
+    <section id="loginSection" class="login-section">
+      <div class="login-box" id="loginBox">
+        <h2>School Login</h2>
+        <input type="text" id="loginUser" placeholder="Student ID or Email">
+        <input type="password" id="loginPass" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <div style="margin-top:10px;">
+          <span>Don't have an account? <a href="#" onclick="showSignUp()">Sign Up</a></span>
+        </div>
+      </div>
+      <div class="login-box" id="signUpBox" style="margin-top: 30px; display:none;">
+        <h2>Sign Up</h2>
+        <input type="text" id="signUpName" placeholder="Full Name">
+        <input type="text" id="signUpUser" placeholder="Student ID or Email">
+        <input type="password" id="signUpPass" placeholder="Password">
+        <button onclick="signUp()">Sign Up</button>
+        <div style="margin-top:10px;">
+          <span>Already have an account? <a href="#" onclick="showLogin()">Login</a></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="text-align:center; margin-top:40px;">
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:info@dumaguetecnhs.edu.ph">info@dumaguetecnhs.edu.ph</a></p>
+      <p>Address: Dumaguete City, Negros Oriental, Philippines</p>
+    </section>
+  </div>
+
+  <!-- Admin Dashboard (hidden by default) -->
+  <div id="adminDashboard" style="display:none; height:100vh; width:100vw; position:fixed; top:0; left:0; background: linear-gradient(135deg, #218838 60%, #ffd700 100%); z-index:999;">
+    <div style="display:flex; flex-direction:column; height:100vh;">
+      <!-- Top: Admins -->
+      <div style="background:rgba(255,255,255,0.95); padding:24px 0 12px 0; text-align:center; border-bottom:2px solid #218838;">
+        <h2 style="margin:0; color:#218838;">School Admins</h2>
+        <div style="display:flex; justify-content:center; gap:40px; margin-top:10px;">
+          <div>
+            <strong>Principal III</strong><br>
+            <span>Dr. [Name]</span>
+          </div>
+          <div>
+            <strong>Asst. Principal (JHS)</strong><br>
+            <span>Mr./Ms. [Name]</span>
+          </div>
+          <div>
+            <strong>Asst. Principal (SHS)</strong><br>
+            <span>Mr./Ms. [Name]</span>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1; display:flex;">
+        <!-- Main Content Area -->
+        <div style="flex:1; padding:40px;">
+          <h2 style="color:#fff;">Welcome to the School Dashboard!</h2>
+          <p style="color:#fff;">Select an option from the menu.</p>
+        </div>
+        <!-- Right Menu -->
+        <div style="width:220px; background:rgba(255,255,255,0.95); border-left:2px solid #ffd700; display:flex; flex-direction:column; align-items:center; padding:30px 0;">
+          <a href="#" style="margin:18px 0; color:#218838; font-weight:700; text-decoration:none; font-size:1.1rem;">Classes</a>
+          <a href="#" style="margin:18px 0; color:#218838; font-weight:700; text-decoration:none; font-size:1.1rem;">Teachers</a>
+          <a href="#" style="margin:18px 0; color:#218838; font-weight:700; text-decoration:none; font-size:1.1rem;">Online Form 138</a>
+        </div>
+      </div>
+      <!-- Bottom Menu -->
+      <div style="background:rgba(33,136,56,0.95); color:#fff; text-align:center; padding:16px 0; font-size:1.1rem;">
+        <span style="margin:0 20px;">Home</span>
+        <span style="margin:0 20px;">Profile</span>
+        <span style="margin:0 20px;">Settings</span>
+        <span style="margin:0 20px;">Logout</span>
+      </div>
+    </div>
+  </div>
+
+  <footer id="mainFooter">
+    &copy; 2024 Dumaguete City National High School. All rights reserved.
+  </footer>
+
+  <script>
+    // Show Sign Up form
+    function showSignUp() {
+      document.getElementById('loginBox').style.display = 'none';
+      document.getElementById('signUpBox').style.display = 'flex';
+    }
+    // Show Login form
+    function showLogin() {
+      document.getElementById('signUpBox').style.display = 'none';
+      document.getElementById('loginBox').style.display = 'flex';
+    }
+
+    // "Store" user in localStorage (for demo only)
+    function signUp() {
+      const name = document.getElementById('signUpName').value;
+      const user = document.getElementById('signUpUser').value;
+      const pass = document.getElementById('signUpPass').value;
+      if (!name || !user || !pass) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      localStorage.setItem('demoUser', JSON.stringify({name, user, pass}));
+      alert('Sign up successful! Please log in.');
+      showLogin();
+    }
+
+    // Login and show dashboard
+    function login() {
+      const user = document.getElementById('loginUser').value;
+      const pass = document.getElementById('loginPass').value;
+      const stored = JSON.parse(localStorage.getItem('demoUser') || '{}');
+      if (user === stored.user && pass === stored.pass) {
+        // Hide main content, show dashboard
+        document.getElementById('mainHeader').style.display = 'none';
+        document.getElementById('mainImage').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'none';
+        document.getElementById('mainFooter').style.display = 'none';
+        document.getElementById('adminDashboard').style.display = 'block';
+      } else {
+        alert('Invalid login. Please try again.');
+      }
+    }
+
+    // Smooth scroll animation for sections
+    function revealSections() {
+      const sections = document.querySelectorAll('section');
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if(sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('load', revealSections);
+  </script>
+</body>
+</html>
